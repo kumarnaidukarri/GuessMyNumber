@@ -1,0 +1,352 @@
+/* importing 'Press Start 2P' googlefont  from web */
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+
+html {
+  font-size: 62.5%;
+  overflow-x: hidden;
+}
+body {
+  font-family: "Press Start 2P", sans-serif;
+  color: #eee;
+  background-color: #222;
+}
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Press Start 2P", sans-serif;
+}
+/* ///////////////////// */
+/* HEADER */
+.header {
+  height: 35vh;
+  width: 100%;
+  border-bottom: 10px solid #eee;
+
+  position: relative; /*parentEl of .boxEl*/
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.top-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  padding: 2rem;
+  padding-bottom: 1rem;
+}
+.btn {
+  font-size: 2rem;
+  padding: 1.5rem 3rem;
+  border-radius: 5px;
+  color: #222;
+  background-color: #eee;
+
+  transition: all 0.3s ease;
+}
+.btn:hover {
+  color: #eee;
+  background-color: #222;
+
+  transform: scale(1.1);
+  border: 1px solid greenyellow;
+  box-shadow: 0 5px 10px greenyellow;
+}
+.between {
+  font-size: 1.8rem;
+  line-height: 1.5;
+}
+.how-to-play {
+  padding-right: 3rem;
+  padding-left: 2rem;
+}
+.heading {
+  font-size: 5rem;
+  text-align: center;
+  line-height: 1.4;
+  /* margin-bottom: 2.5rem; */
+  margin-bottom: 5rem;
+}
+.question-box {
+  display: inline-block;
+  /* padding: 1.5rem 3.2rem; */
+  width: 15rem;
+  padding: 3rem 0;
+  border-radius: 1px;
+  font-size: 6rem;
+  text-align: center;
+  color: #222;
+  background-color: #eee;
+
+  position: absolute; /*childEl of header*/
+  left: 50%;
+  bottom: 0;
+  z-index: 10;
+  transform: translate(-50%, 50%); /* X Y - perfectCentering*/
+}
+
+/* //////////////////////// */
+/* SECTIONS*/
+main {
+  height: 65vh;
+  width: 100%;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+}
+/* LEFT part */
+.left {
+  width: 50%;
+
+  padding: 3rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+#input-box {
+  display: inline-block;
+  height: 10rem;
+  width: 30rem;
+  text-align: center;
+  font-size: 6rem;
+  font-family: sans-serif;
+  color: inherit;
+
+  padding-bottom: 1.5rem;
+  border-radius: 3px;
+  border: none;
+  background-color: #222;
+  border: 1px solid #eee;
+
+  transition: all 0.3s ease;
+}
+
+#input-box:hover,
+#input-box:focus {
+  box-shadow: 0 5px 10px greenyellow;
+  text-shadow: 0 5px 10px greenyellow;
+  transform: scale(1.05);
+}
+
+#input-box::placeholder {
+  color: gray;
+  font-size: 1.6rem;
+  font-family: "Press Start 2P";
+  text-shadow: none;
+}
+.check {
+  margin: 3rem 0;
+}
+/* RIGHT part */
+.right {
+  width: 50%;
+
+  padding-top: 3rem;
+  padding-left: 5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.message {
+  font-size: 3.2rem;
+  color: greenyellow;
+  line-height: 1.5;
+}
+.label-score {
+  font-size: 2.8rem;
+  margin-top: 8rem;
+  margin-bottom: 2rem;
+}
+.label-highscore {
+  font-size: 2.8rem;
+}
+.emoji {
+  font-size: 2.5rem;
+}
+
+/* ////////////////////// */
+/* FOOTER */
+/* PopupBox Section */
+#popup-container {
+  /* bydefault Popup is Hidden from User. Popup is show, when HowtoPlay button is clicked which navigates/targets to PopupElement  */
+  opacity: 0; /* invisible */
+  visibility: hidden; /* not accessible */
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  background-color: rgba(black, 0.8s);
+  backdrop-filter: blur(10px); /*blurs our element*/
+
+  height: 100vh;
+  width: 100vw;
+  transform: scale(0.1);
+  transition: all 1s; /*target state*/
+}
+.popup-list {
+  opacity: 0; /* invisible */
+  visibility: hidden; /* not accessible */
+
+  width: 60%;
+  height: 60%;
+  transform: translate(40%, 40%);
+  color: red;
+  background-color: #222;
+  box-shadow: 0 10px 20px red;
+  padding-left: 5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.list-item {
+  font-family: "Roboto";
+  font-size: 3rem;
+}
+.list-item:hover {
+  box-shadow: 0 10px 50px red;
+}
+/* lastlist Item */
+.list-item:last-child {
+  list-style-type: none;
+}
+/* lastlist Item Hoverstate */
+.list-item:last-child:hover {
+  box-shadow: none;
+}
+.btn-goback {
+  font-size: 2rem;
+}
+.btn-goback:hover {
+  border: 1px solid red;
+  box-shadow: 0 5px 20px red;
+}
+#popup-container:target {
+  /* when User clicks 'Howtoplay button' navigates to this Pop-container. it means Popupcontainer is 'Targeted state' */
+  opacity: 1; /* visible */
+  visibility: visible; /* accessible */
+  transform: scale(1);
+}
+#popup-container:target .popup-list {
+  /* Apply styles to popup-list when popupcontainer is targeted */
+  opacity: 1; /* visible */
+  visibility: visible; /* accessible */
+}
+
+/* //////////////////////////// */
+/* MEDIA QUERIES */
+/* desktop-first Approach - making breakpooints when design breaks*/
+@media screen and (max-width: 1366px) {
+  .heading {
+    font-size: 3.8rem;
+  }
+  .btn {
+    font-size: 1.6rem;
+  }
+  .between {
+    font-size: 1.4rem;
+  }
+  .question-box {
+    font-size: 5rem;
+  }
+  #input-box {
+    font-size: 5rem;
+  }
+  .message {
+    font-size: 2.4rem;
+  }
+  .label-score,
+  .label-highscore {
+    font-size: 2rem;
+  }
+}
+@media only screen and (max-width: 700px) {
+  html {
+    font-size: 50%;
+  }
+  .top-box {
+    padding: 1rem;
+  }
+  .how-to-play {
+    padding-left: 1rem;
+  }
+  .heading {
+    font-size: 3.6rem;
+  }
+  #input-box {
+    height: 9rem;
+    width: 27rem;
+  }
+  .right {
+    padding-left: 3%;
+  }
+
+  .label-score,
+  .label-highscore {
+    font-size: 1.8rem;
+  }
+  .label-score {
+    margin-top: 6rem;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .heading {
+    font-size: 2.6rem;
+  }
+  .between {
+    font-size: 1.2rem;
+  }
+  .btn {
+    font-size: 1.6rem;
+    padding: 2rem;
+  }
+  /* MAIN sections UI changes here */
+  main {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-start;
+  }
+  .left {
+    width: 100%;
+    padding: 0;
+    padding-top: 5rem;
+    flex-direction: row;
+  }
+  #input-box {
+    height: 8rem;
+    width: 24rem;
+    font-size: 3.6rem;
+    margin-left: 2rem;
+    margin-right: 5%;
+  }
+  .right {
+    width: 100%;
+    padding-top: 0;
+  }
+  .message {
+    font-size: 2.3rem;
+  }
+  .label-score,
+  .label-highscore {
+    font-size: 1.8rem;
+  }
+
+  .popup-list {
+    padding-left: 2.5rem;
+    padding-right: 1rem;
+  }
+  .list-item {
+    font-size: 2rem;
+  }
+  .btn-goback {
+    font-size: 1.1rem;
+  }
+}
